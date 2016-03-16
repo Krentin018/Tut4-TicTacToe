@@ -14,6 +14,6 @@ public:
 
 	TicTacToe();
 	TicTacToe(int x1, int y1, int x2, int y2, int p, char dec);
-
+	void TicTacToe::reset(TicTacToe game, bool &done);
 	~TicTacToe();
 };
