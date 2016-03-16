@@ -7,7 +7,6 @@ TicTacToe::TicTacToe(){}
 
 TicTacToe::TicTacToe(int x1 = 0, int y1 = 0, int x2 = 0, int y2 = 0, int p = 1, char dec = 'n')
 {
-	//default constructor
 	xPos1 = x1;
 	yPos1 = y1;
 	xPos2 = x2;
@@ -111,4 +110,48 @@ void TicTacToe::print(TicTacToe Board)
 	cout << "\n************************************************************\n\n" << endl;
 
 	bool fun = true;
+	Board.over(Board, fun, fun);
+}
+void TicTacToe::over(TicTacToe Status, bool move, bool win)
+{
+	move = true;
+	win = false;
+
+	for (int i = 0; i < 3; i++)
+	{
+		for (int j = 0; j < 3; j++)
+		{
+			if (posArr[i][j] == '_')
+				move = false;
+			if (posArr[0][j] == posArr[1][j] && posArr[1][j] == posArr[2][j] && posArr[2][j] != '_')
+				win = true;
+			if (posArr[j][0] == posArr[j][1] && posArr[j][2] == posArr[j][1] && posArr[j][1] != '_')
+				win = true;
+			if (posArr[0][0] == posArr[1][1] && posArr[1][1] == posArr[2][2] && posArr[2][2] != '_')
+				win = true;
+			if (posArr[2][0] == posArr[1][1] && posArr[1][1] == posArr[0][2] && posArr[0][2] != '_')
+				win = true;
+		}
+	}
+
+
+
+	if (win)
+	{
+		if (Status.player == 2)
+			Status.player = 1;
+		else
+			Status.player = 2;
+		cout << "Player " << Status.player << " has won. Congratulations!" << endl;
+		cout << "\n************************************************************\n" << endl;
+		Status.reset(Status, win);
+	}
+	else if (!move)
+		Status.move(Status, posArr);
+	else
+	{
+		cout << "Unfortunately the match has ended in a draw, Please play again!" << endl;
+		cout << "\n************************************************************\n" << endl;
+		Status.reset(Status, win);
+	}
 }

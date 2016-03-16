@@ -17,5 +17,6 @@ public:
 	void TicTacToe::reset(TicTacToe game, bool &done);
 	void TicTacToe::move(TicTacToe Player, char posArr[][3]);
 	void TicTacToe::print(TicTacToe Board);
+	void TicTacToe::over(TicTacToe Status, bool move, bool win);
 	~TicTacToe();
 };
