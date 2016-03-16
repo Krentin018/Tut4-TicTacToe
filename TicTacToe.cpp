@@ -15,6 +15,18 @@ TicTacToe::TicTacToe(int x1 = 0, int y1 = 0, int x2 = 0, int y2 = 0, int p = 1, 
 	decision = dec;
 }
 
+void TicTacToe::start()
+{
+	//function provides a brief welcome/introduction to the game 
+	cout << "\n************************************************************" << endl;
+	cout << "\n Welcome to the 2 player game Tic Tac Toe! Player 1 is ";
+	cout << "\n represented by 'x' and Player 2 by 'o'. ";
+	cout << "\n Each player will be prompted to place their letter";
+	cout << "\n in a row and collumn. The first 1 to create 3 adjacent";
+	cout << "\n plays wins! Goodluck!" << endl;
+	cout << "\n************************************************************" << endl << endl;
+}
+
 void TicTacToe::reset(TicTacToe game, bool &done)
 {
 	cout << "Do you wish to start a new game (y/n) ?" << endl;

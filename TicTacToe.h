@@ -18,5 +18,6 @@ public:
 	void TicTacToe::move(TicTacToe Player, char posArr[][3]);
 	void TicTacToe::print(TicTacToe Board);
 	void TicTacToe::over(TicTacToe Status, bool move, bool win);
+	void TicTacToe::start();
 	~TicTacToe();
 };
